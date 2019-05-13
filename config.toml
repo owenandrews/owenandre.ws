@@ -1,0 +1,4 @@
+baseURL = "http://www.owenandre.ws/"
+languageCode = "en-us"
+title = "Owen Andrews"
+disableKinds = ["taxonomy", "taxonomyTerm"]

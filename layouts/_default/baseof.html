@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>Owen Andrews{{ if not .IsHome }} — {{ .Title }}{{ end }}</title>
+		
+		<link rel="stylesheet" href="/fontello/css/fontello.css">
+
+		{{ $style := resources.Get "main.scss" | toCSS | resources.PostCSS | minify | fingerprint }} 
+		<link rel="stylesheet" href="{{ $style.Permalink }}">
+	</head>
+	<body class="font-sans leading-normal text-grey-darker min-h-screen">
+        {{ block "main" . }}{{ end }}
+    </body>
+</html>

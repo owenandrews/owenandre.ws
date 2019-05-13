@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="container mx-auto max-w-lg px-4">
+    {{ partial "header.html" . }}
+	<section class=>
+		{{ $image := .Resources.GetMatch "header.jpg" }}
+		{{ $resized := $image.Fill "1920x1080" }}
+		<img src="{{ $resized.RelPermalink }}">
+		<h1 class="text-grey-darkest mt-2">{{ .Title }}</h1>
+		<p class="text-grey-darker mb-4">{{ .Date.Month }} {{ .Date.Year }} (~{{ .ReadingTime }} minutes)</p>
+		<section class="text-grey-darkest blog-post--content">
+			{{ .Content }}
+		</section>
+	</section>
+</main>
+{{ end }}

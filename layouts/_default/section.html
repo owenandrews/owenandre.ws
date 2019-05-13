@@ -1,0 +1,65 @@
+{{ define "main" }}
+<main class="container mx-auto max-w-lg px-4">
+    {{ partial "header.html" . }}
+    <section class="flex flex-wrap -mx-4">
+        {{ range $index, $value := where .Pages "Section" "posts" }}
+            {{ if (eq $index 0) }}
+                <article class="px-4 mb-8">
+                    {{ $image := .Resources.GetMatch "header.jpg" }}
+                    {{ $resized := $image.Fill "1920x1080" }}
+                    <img src="{{ $resized.RelPermalink }}">
+                    <a href="{{ .Permalink }}" class="group no-underline">
+                        <h2 class="text-grey-darker group-hover:text-grey-darkest">{{ .Title }}</h2>
+                        <p class="text-grey-dark group-hover:text-grey-darkest">{{ .Date.Month }} {{ .Date.Year }} (~{{ .ReadingTime }} minutes)</p>
+                        <p class="font-serif text-grey-darker group-hover:text-grey-darkest">
+                            {{ .Summary }}
+                        </p>
+                    </a>
+                </article>
+            {{ else }}
+                <article class="w-1/2 px-4 mb-8">
+                    {{ $image := .Resources.GetMatch "header.jpg" }}
+                    {{ $resized := $image.Fill "1920x1080" }}
+                    <img src="{{ $resized.RelPermalink }}">
+                    <a href="{{ .Permalink }}" class="group no-underline">
+                        <h2 class="text-grey-darker group-hover:text-grey-darkest">{{ .Title }}</h2>
+                        <p class="text-grey-dark group-hover:text-grey-darkest">{{ .Date.Month }} {{ .Date.Year }} (~{{ .ReadingTime }} minutes)</p>
+                        <p class="font-serif text-grey-darker group-hover:text-grey-darkest">
+                            {{ .Summary }}
+                        </p>
+                    </a>
+                </article>
+            {{ end }}
+        {{ end }}
+    </section>
+</main>
+
+<!--
+<header class="flex justify-center items-center bg-near-white min-vh-75">
+    <section class="mw7 ph4">
+        <a class="logo f1 fw7 no-underline black absolute top-1 dim" href="/">oa</a>
+        <h1 class="f1 mb0">Owen Andrews</h1>
+        <p class="lh-copy">Hi there! 👋🏼 I don't really know what I'm doing here, but I enjoy working on interesting problems and making things.</p>
+        <div class="flex mt4 flex-column flex-row-ns">
+            <a href="https://instagram.com/owenandrews" class="mr3-ns mb2 pr3 pl2 pv2 bg-black-10 dark-pink br2 no-underline bg-animate hover-bg-moon-gray tc fw5"><i class="icon-instagram f4 pr1"></i>Instagram</a>
+            <a href="https://twitter.com/owenandrews_" class="mr3-ns mb2 pr3 pl2 pv2 bg-black-10 blue br2 no-underline bg-animate hover-bg-moon-gray tc fw5"><i class="icon-twitter f4 pr1"></i>Twitter</a>
+            <a href="https://github.com/owenandrews" class="pr3 pl2 mb2 pv2 bg-black-10 dark-gray br2 no-underline bg-animate hover-bg-moon-gray tc fw5"><i class="icon-github f4 pr1"></i>Github</a>
+        </div>
+    </section>
+</header>
+<main class="flex justify-center">
+    <section class="w-100 mw7 pa4">
+        {{ range where .Pages "Section" "posts" }}
+        <a href="{{ .Permalink }}" class="no-underline black dim flex mb4">
+            {{ $image := .Resources.GetMatch "header.jpg" }}
+            {{ $resized := $image.Fill "120x120" }}
+            <img width="60" height="60" src="{{ $resized.RelPermalink }}" class="mr3">
+            <div class="flex flex-column justify-center">
+                <p class="gray ma0 mb1">{{ .Date.Month }} {{ .Date.Year }}</p>
+                <h2 class="ma0">{{ .Title }}</h2>
+            </div>
+        </a>
+        {{ end }}
+    </section>
+</main>-->
+{{ end }}

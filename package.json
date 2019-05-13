@@ -1,0 +1,17 @@
+{
+  "name": "owenandre.ws",
+  "version": "1.0.0",
+  "description": "https://owenandre.ws",
+  "main": "index.js",
+  "repository": "git@github.com:owenandrews/owenandre.ws.git",
+  "author": "Owen Andrews <owen@owenandre.ws>",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.5.0",
+    "postcss-cli": "^6.1.2",
+    "tachyons-sass": "^4.9.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^0.7.4"
+  }
+}
