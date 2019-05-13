@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="/fontello/css/fontello.css">
 
 		{{ $style := resources.Get "main.scss" | toCSS | resources.PostCSS | minify | fingerprint }} 
-		<link rel="stylesheet" href="{{ $style.Permalink }}">
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	</head>
 	<body class="font-sans leading-normal text-grey-darker min-h-screen">
         {{ block "main" . }}{{ end }}
